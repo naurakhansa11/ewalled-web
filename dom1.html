@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List dengan DOM</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      #taskList {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        display: flex;
+        justify-content: space-between;
+        margin: 5px 0;
+        padding: 5px;
+        border: 1px solid #ccc;
+      }
+      .completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>To-Do List</h1>
+    <input type="text" id="taskInput" placeholder="Tambahkan tugas..." />
+    <button id="addtask">Tambah</button>
+    <button id="removetask">Hapus</button>
+    <ul id="taskList"></ul>
+
+    <script>
+      function add() {
+        const taskInput = document.getElementById("taskInput");
+        const taskList = document.getElementById("taskList");
+        const list = document.createElement("list");
+        list.textContent = taskInput.value;
+        taskList.appendChild(list);
+      }
+
+      document.getElementById("addtask").addEventListener("click", () => add());
+    </script>
+  </body>
+</html>
